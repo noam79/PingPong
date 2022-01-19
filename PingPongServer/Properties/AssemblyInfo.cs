@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PingPong")]
+[assembly: AssemblyTitle("PingPongServer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PingPong")]
+[assembly: AssemblyProduct("PingPongServer")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9c668ff7-40d2-4427-9375-a11ae6e36b8f")]
+[assembly: Guid("0d470cd1-9a31-42dd-a077-7bd84b37f967")]
 
 // Version information for an assembly consists of the following four values:
 //

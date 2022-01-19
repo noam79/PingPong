@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9C668FF7-40D2-4427-9375-A11AE6E36B8F}</ProjectGuid>
+    <ProjectGuid>{0D470CD1-9A31-42DD-A077-7BD84B37F967}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PingPong</RootNamespace>
-    <AssemblyName>PingPong</AssemblyName>
+    <RootNamespace>PingPongServer</RootNamespace>
+    <AssemblyName>PingPongServer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
