@@ -30,10 +30,10 @@ Server:
 			
 	Concrete:
 		
-		PingPongSocketListener: ISocketListener
-		PingPongSockerHandler: ISocketClientHandler
+		DefaultSocketListener: ISocketListener
+		PingPongSocketHandler: ISocketClientHandler
 		
-		PingPongTcpClientListener: ITcpClientListener
+		DefaultTcpClientListener: ITcpClientListener
 		PingPongTcpClientHandler: ITcpClientHandler
 	
 Client:
