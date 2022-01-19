@@ -7,6 +7,8 @@ Server:
 				accept client
 				handle client on new thread
 				
+		void stop()
+				
 	TCPServer depends on:
 			
 		Stage 1:

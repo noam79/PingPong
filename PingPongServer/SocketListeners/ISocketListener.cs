@@ -10,5 +10,7 @@ namespace PingPongServer.SocketListeners
     public interface ISocketListener
     {
         public Socket Accept();
+
+        public void Close();
     }
 }
