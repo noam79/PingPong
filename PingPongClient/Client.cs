@@ -1,6 +1,9 @@
-﻿using PingPongClient.Output;
+﻿using PingPongClient.ObjectProviders;
+using PingPongClient.Output;
+using PingPongClient.ServerContact;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -26,11 +29,13 @@ namespace PingPongClient
 
         public void Communicate(string ip, int port)
         {
+            var maxMessageSize = int.Parse(ConfigurationManager.AppSettings["maxServerMessageSize"]);
+
             _serverContact.Connect(ip, port);
             while (_run)
             {
                 _serverContact.Send(_objectProvider.GetObject());
-                _output.Write(_serverContact.Recieve().ToString());
+                _output.Write(_serverContact.Recieve(maxMessageSize).ToString());
             }
         }
 

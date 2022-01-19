@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PingPongClient
+namespace PingPongClient.ServerContact
 {
     public interface IServerContact : IDisposable
     {
@@ -12,6 +12,6 @@ namespace PingPongClient
 
         public void Send(object obj);
 
-        public object Recieve();
+        public object Recieve(int maxMessageSize);
     }
 }
