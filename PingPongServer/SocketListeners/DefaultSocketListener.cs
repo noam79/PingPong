@@ -12,10 +12,10 @@ namespace PingPongServer.SocketListeners
     {
         private Socket _listener;
 
-        public DefaultSocketListener(string ip, int port, int maxClients)
+        public DefaultSocketListener(int port, int maxClients)
         {
             _listener = new Socket(SocketType.Stream, ProtocolType.Tcp);
-            _listener.Bind(new IPEndPoint(new IPAddress(long.Parse(ip)), port));
+            _listener.Bind(new IPEndPoint(IPAddress.Any, port));
             _listener.Listen(maxClients);
         }
 
