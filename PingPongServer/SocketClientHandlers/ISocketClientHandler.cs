@@ -10,5 +10,7 @@ namespace PingPongServer.SocketClientHandlers
     public interface ISocketClientHandler
     {
         public void HandleClient(Socket socket);
+
+        public void Close();
     }
 }
