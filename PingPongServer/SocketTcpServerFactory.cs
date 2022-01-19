@@ -11,10 +11,10 @@ namespace PingPongServer
 {
     public class SocketTcpServerFactory
     {
-        public TcpServer Create()
+        public TcpServer Create(int port)
         {
             var listener = new DefaultSocketListener(
-                int.Parse(ConfigurationManager.AppSettings["port"]), 
+                port, 
                 int.Parse(ConfigurationManager.AppSettings["maxClients"]));
 
             var clientHandler = new PingPongSocketHandler();
