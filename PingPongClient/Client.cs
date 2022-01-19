@@ -29,6 +29,8 @@ namespace PingPongClient
 
         public void Communicate(string ip, int port)
         {
+            _run = true;
+
             var maxMessageSize = int.Parse(ConfigurationManager.AppSettings["maxServerMessageSize"]);
 
             _serverContact.Connect(ip, port);

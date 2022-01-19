@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace PingPongClient
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            var factory = new ClientFactory();
+            var client = factory.Create();
+
+            client.Communicate("127.0.0.10", 12345);
         }
     }
 }

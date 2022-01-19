@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="ClientFactory.cs" />
     <Compile Include="ObjectProviders\ConsoleStringProvider.cs" />
     <Compile Include="ObjectProviders\IObjectProvider.cs" />
     <Compile Include="Output\ConsoleOutput.cs" />
