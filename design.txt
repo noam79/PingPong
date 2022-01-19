@@ -55,7 +55,7 @@ Client:
 			
 	Concrete:
 		ConsoleStringProvider: IObjectProvider
-		ISocketContact: IServerContact
-		ITcpClientContact: IServerContact
+		SocketContact: IServerContact
+		TcpClientContact: IServerContact
 	
 	
