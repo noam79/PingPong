@@ -1,0 +1,59 @@
+Server:
+
+	TCPServer
+		atomic bool IsRunning
+		void start()
+			while running
+				accept client
+				handle client on new thread
+				
+	TCPServer depends on:
+			
+		Stage 1:
+		
+		ISocketListener:
+			Socket Accept()
+			
+		ISocketClientHandler:
+			void HandleClient(Socket)
+			
+		Stage 2:
+		
+		ITcpClientListener:
+			TcpClient Accept()
+			
+		ITcpClientHandler:
+			void HandleClient(TcpClient)
+			
+			
+	Concrete:
+		
+		DefaultSocketListener: ISocketListener
+		PingPongSockerHandler: ISocketClientHandler
+		
+		DefaultTcpClientListener: ITcpClientListener
+		PingPongTcpClientHandler: ITcpClientHandler
+	
+Client:
+
+	Client: IDisposable
+		int ip
+		int port
+		void Communicate(ip, port)
+	
+	Client depends on:
+	
+		IObjectProvider:
+			object GetObject()
+			
+		IServerContact: IDisposable
+			Connect(ip, port)
+			Send(object)
+			object Recieve()
+			
+	Concrete:
+		ConsoleStringProvider: IObjectProvider
+		ISocketContact: IServerContact
+		ITcpClientContact: IServerContact
+	
+	
