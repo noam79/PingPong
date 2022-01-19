@@ -31,11 +31,11 @@ namespace PingPongClient.ServerContact
 
         public void Send(object obj)
         {
-            throw new NotImplementedException();
+            _socket.Send(Encoding.ASCII.GetBytes(obj.ToString()));
         }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _socket.Close();
         }
     }
 }
