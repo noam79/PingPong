@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace PingPongServer
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            var factory = new SocketTcpServerFactory();
+            var server = factory.Create(int.Parse(args[1]));
+
+            server.Start();
         }
     }
 }
