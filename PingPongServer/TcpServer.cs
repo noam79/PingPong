@@ -1,4 +1,5 @@
-﻿using PingPongServer.SocketClientHandlers;
+﻿using log4net;
+using PingPongServer.SocketClientHandlers;
 using PingPongServer.SocketListeners;
 using System;
 using System.Collections.Generic;
@@ -12,17 +13,21 @@ namespace PingPongServer
     {
         private ISocketListener _listener;
         private ISocketClientHandler _clientHandler;
-
         private bool _run;
 
-        public TcpServer(ISocketListener listener, ISocketClientHandler clientHandler)
+        private ILog _logger;
+
+        public TcpServer(ISocketListener listener, ISocketClientHandler clientHandler, ILog logger)
         {
             _listener = listener;
             _clientHandler = clientHandler;
+            _logger = logger;
         }
 
         public void Start()
         {
+            _logger?.Info("Starting TcpServer");
+
             _run = true;
 
             while (_run)
@@ -36,6 +41,8 @@ namespace PingPongServer
 
         public void Stop()
         {
+            _logger?.Info("Stopping TcpServer");
+
             _run = false;
             _listener.Close();
             _clientHandler.Close();

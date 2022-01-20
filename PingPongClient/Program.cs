@@ -13,7 +13,7 @@ namespace PingPongClient
             var factory = new ClientFactory();
             var client = factory.Create();
 
-            client.Communicate("127.0.0.10", 12345);
+            client.Communicate("127.0.0.10", 12445);
         }
     }
 }

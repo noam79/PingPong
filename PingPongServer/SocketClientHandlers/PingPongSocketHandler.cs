@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -10,6 +11,12 @@ namespace PingPongServer.SocketClientHandlers
     public class PingPongSocketHandler : ISocketClientHandler
     {
         private bool _run;
+        private ILog _logger;
+
+        public PingPongSocketHandler(ILog logger)
+        {
+            _logger = logger;
+        }
 
         public void HandleClient(Socket socket)
         {
@@ -27,10 +34,11 @@ namespace PingPongServer.SocketClientHandlers
                     data += Encoding.ASCII.GetString(buffer, 0, bytesReceived);
                     if (data.IndexOf("<EOF>") > -1)
                     {
+                        _logger?.Info($"Received Message: \"{data}\"");
                         break;
                     }
                 }
-
+                _logger?.Info($"Sending Message: \"{data}\"");
                 socket.Send(Encoding.ASCII.GetBytes(data));
             }
         }

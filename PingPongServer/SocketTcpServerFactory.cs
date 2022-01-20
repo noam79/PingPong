@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PingPongServer.SocketClientHandlers;
+using log4net;
 
 namespace PingPongServer
 {
@@ -13,13 +14,17 @@ namespace PingPongServer
     {
         public TcpServer Create(int port)
         {
+            var logger = LogManager.GetLogger(nameof(Program));
+
             var listener = new DefaultSocketListener(
                 port, 
-                int.Parse(ConfigurationManager.AppSettings["maxClients"]));
+                int.Parse(ConfigurationManager.AppSettings["maxClients"]),
+                logger
+                );
 
-            var clientHandler = new PingPongSocketHandler();
+            var clientHandler = new PingPongSocketHandler(logger);
 
-            return new TcpServer(listener, clientHandler);
+            return new TcpServer(listener, clientHandler, logger);
         }
     }
 }
