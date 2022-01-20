@@ -11,7 +11,7 @@ namespace PingPongServer
         public static void Main(string[] args)
         {
             var factory = new SocketTcpServerFactory();
-            var server = factory.Create(12445);
+            var server = factory.Create(int.Parse(args[0]));
 
             server.Start();
         }

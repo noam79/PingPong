@@ -14,7 +14,7 @@ namespace PingPongClient
             var factory = new ClientFactory();
             var client = factory.Create<Person>();
 
-            client.Communicate("127.0.0.10", 12445);
+            client.Communicate(args[0], int.Parse(args[1]));
         }
     }
 }
