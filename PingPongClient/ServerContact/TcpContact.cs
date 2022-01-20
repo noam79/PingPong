@@ -32,10 +32,9 @@ namespace PingPongClient.ServerContact
         public object Recieve(int maxMessageSize)
         {
             var rawData = new byte[2048];
-            var message = string.Empty;
 
             int dataReceived = _stream.Read(rawData, 0, rawData.Length);
-            message = Encoding.ASCII.GetString(rawData, 0, dataReceived);
+            var message = Encoding.ASCII.GetString(rawData, 0, dataReceived);
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject(message);
         }
