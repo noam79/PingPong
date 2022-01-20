@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PingPongClient
 {
-    public class Client<T>
+    public class PingPongClient<T>
     {
         private IObjectProvider _objectProvider;
         private IServerContact<T> _serverContact;
@@ -20,7 +20,7 @@ namespace PingPongClient
 
         private bool _run;
 
-        public Client(IObjectProvider objectProvider, IServerContact<T> serverContact, IOutput output)
+        public PingPongClient(IObjectProvider objectProvider, IServerContact<T> serverContact, IOutput output)
         {
             _objectProvider = objectProvider;
             _serverContact = serverContact;

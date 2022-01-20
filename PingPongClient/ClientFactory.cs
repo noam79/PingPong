@@ -11,13 +11,13 @@ namespace PingPongClient
 {
     public class ClientFactory
     {
-        public Client<T> Create<T>()
+        public PingPongClient<T> Create<T>()
         {
             var objectProvider = new PersonProvider();
             var serverContact = new TcpContact<T>();
             var output = new ConsoleOutput();
 
-            return new Client<T>(objectProvider, serverContact, output);
+            return new PingPongClient<T>(objectProvider, serverContact, output);
         }
     }
 }
