@@ -17,6 +17,8 @@ namespace PingPongServer.TcpListeners
         public DefaultTcpClientListener(int port, ILog logger)
         {
             _listener = new TcpListener(IPAddress.Any, port);
+            _listener.Start();
+
             _logger = logger;
         }
 

@@ -34,11 +34,17 @@ namespace PingPongServer
 
             while (_run)
             {
-                var clientSocket = _listener.Accept();
-                _logger?.Info("Accepted Client");
-                Task.Run(() =>
-                    _clientHandler.HandleClient(clientSocket)
-                    );
+                try
+                {
+                    var clientSocket = _listener.Accept();
+                    _logger?.Info("Accepted Client");
+                    Task.Run(() =>
+                        _clientHandler.HandleClient(clientSocket)
+                        );
+                }catch(Exception e)
+                {
+
+                }
             }
         }
 

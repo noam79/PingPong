@@ -26,10 +26,19 @@ namespace PingPongServer.TcpClientHandlers
             var stream = client.GetStream();
             var buffer = new byte[2048];
             string data;
+            int bytesReceived;
 
             while (_run)
             {
-                int bytesReceived = stream.Read(buffer, 0, buffer.Length);
+                try
+                {
+                    bytesReceived = stream.Read(buffer, 0, buffer.Length);
+                }
+                catch (Exception)
+                {
+                    _logger.Info("Client Closed Connection");
+                    break;
+                }
                 data = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
                 _logger?.Info($"Received Message, Echoing: \"{data}\"");
 
