@@ -33,6 +33,7 @@ namespace PingPongClient.ServerContact
         {
             _socket.Send(Encoding.ASCII.GetBytes(obj.ToString()));
         }
+
         public void Dispose()
         {
             _socket.Close();
