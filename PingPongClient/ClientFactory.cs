@@ -13,8 +13,8 @@ namespace PingPongClient
     {
         public Client Create()
         {
-            var objectProvider = new ConsoleStringProvider();
-            var serverContact = new SocketContact();
+            var objectProvider = new PersonProvider();
+            var serverContact = new TcpContact();
             var output = new ConsoleOutput();
 
             return new Client(objectProvider, serverContact, output);

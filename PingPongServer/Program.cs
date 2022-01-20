@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace PingPongServer
@@ -14,11 +13,7 @@ namespace PingPongServer
             var factory = new SocketTcpServerFactory();
             var server = factory.Create(12445);
 
-            Task.Run(() => server.Start());
-
-            Thread.Sleep(3000);
-
-            server.Stop();
+            server.Start();
         }
     }
 }

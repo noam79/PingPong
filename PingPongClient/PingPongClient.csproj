@@ -101,6 +101,7 @@
     <Compile Include="ClientFactory.cs" />
     <Compile Include="ObjectProviders\ConsoleStringProvider.cs" />
     <Compile Include="ObjectProviders\IObjectProvider.cs" />
+    <Compile Include="ObjectProviders\PersonProvider.cs" />
     <Compile Include="Output\ConsoleOutput.cs" />
     <Compile Include="Output\IOutput.cs" />
     <Compile Include="ServerContact\IServerContact.cs" />
