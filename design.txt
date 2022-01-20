@@ -21,7 +21,7 @@ Server:
 			
 		Stage 2:
 		
-		ITcpClientListener:
+		ITcpListener:
 			TcpClient Accept()
 			
 		ITcpClientHandler:
@@ -33,7 +33,7 @@ Server:
 		DefaultSocketListener: ISocketListener
 		PingPongSocketHandler: ISocketClientHandler
 		
-		DefaultTcpClientListener: ITcpClientListener
+		DefaultTcpClientListener: ITcpListener
 		PingPongTcpClientHandler: ITcpClientHandler
 	
 Client:
