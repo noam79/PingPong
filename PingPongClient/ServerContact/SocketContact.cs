@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PingPongClient.ServerContact
 {
-    public class SocketContact : IServerContact
+    public class SocketContact<T> : IServerContact<T>
     {
         private Socket _socket;
 
@@ -21,12 +21,13 @@ namespace PingPongClient.ServerContact
             _socket.Connect(ip, port);
         }
 
-        public object Recieve(int maxMessageSize)
+        public T Recieve(int maxMessageSize)
         {
             var message = new byte[maxMessageSize];
             var messageLength = _socket.Receive(message);
 
-            return Encoding.ASCII.GetString(message, 0, messageLength);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(
+                Encoding.ASCII.GetString(message, 0, messageLength));
         }
 
         public void Send(object obj)

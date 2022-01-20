@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PingPongClient.ServerContact
 {
-    public class TcpContact : IServerContact
+    public class TcpContact<T> : IServerContact<T>
     {
         private TcpClient _client;
         private NetworkStream _stream;
@@ -29,14 +29,14 @@ namespace PingPongClient.ServerContact
                 );
         }
 
-        public object Recieve(int maxMessageSize)
+        public T Recieve(int maxMessageSize)
         {
             var rawData = new byte[2048];
 
             int dataReceived = _stream.Read(rawData, 0, rawData.Length);
             var message = Encoding.ASCII.GetString(rawData, 0, dataReceived);
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject(message);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(message);
         }
 
         public void Dispose()

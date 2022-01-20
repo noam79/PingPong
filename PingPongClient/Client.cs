@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace PingPongClient
 {
-    public class Client
+    public class Client<T>
     {
         private IObjectProvider _objectProvider;
-        private IServerContact _serverContact;
+        private IServerContact<T> _serverContact;
 
         private IOutput _output;
 
         private bool _run;
 
-        public Client(IObjectProvider objectProvider, IServerContact serverContact, IOutput output)
+        public Client(IObjectProvider objectProvider, IServerContact<T> serverContact, IOutput output)
         {
             _objectProvider = objectProvider;
             _serverContact = serverContact;

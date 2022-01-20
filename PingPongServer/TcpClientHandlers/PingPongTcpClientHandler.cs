@@ -36,7 +36,7 @@ namespace PingPongServer.TcpClientHandlers
                 }
                 catch (Exception)
                 {
-                    _logger.Info("Client Closed Connection");
+                    _logger?.Info("Client Closed Connection");
                     break;
                 }
                 data = Encoding.ASCII.GetString(buffer, 0, bytesReceived);

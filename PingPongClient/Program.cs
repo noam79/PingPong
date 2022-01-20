@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PingPongClient.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace PingPongClient
         public static void Main(string[] args)
         {
             var factory = new ClientFactory();
-            var client = factory.Create();
+            var client = factory.Create<Person>();
 
             client.Communicate("127.0.0.10", 12445);
         }
