@@ -75,6 +75,9 @@
     <Compile Include="SocketListeners\DefaultSocketListener.cs" />
     <Compile Include="SocketListeners\ISocketListener.cs" />
     <Compile Include="SocketTcpServerFactory.cs" />
+    <Compile Include="TcpClientHandlers\ITcpClientHandler.cs" />
+    <Compile Include="TcpListeners\DefaultTcpClientListener.cs" />
+    <Compile Include="TcpListeners\ITcpListener.cs" />
     <Compile Include="TcpServer.cs" />
   </ItemGroup>
   <ItemGroup>
