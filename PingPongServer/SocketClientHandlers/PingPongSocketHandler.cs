@@ -22,23 +22,19 @@ namespace PingPongServer.SocketClientHandlers
         {
             _run = true;
 
+            string data = null;
+            byte[] buffer = new byte[2048];
+
             while (_run)
             {
-                string data = null;
-                byte[] buffer = null;
+                int bytesReceived = socket.Receive(buffer);
 
-                while (_run)
-                {
-                    buffer = new byte[2048];
-                    int bytesReceived = socket.Receive(buffer);
+                data += Encoding.ASCII.GetString(buffer, 0, bytesReceived);
 
-                    data += Encoding.ASCII.GetString(buffer, 0, bytesReceived);
+                _logger?.Info($"Received Message, Echoing: \"{data}\"");
+                socket.Send(Encoding.ASCII.GetBytes(data));
 
-                    _logger?.Info($"Received Message, Echoing: \"{data}\"");
-                    socket.Send(Encoding.ASCII.GetBytes(data));
-
-                    data = string.Empty;
-                }
+                data = string.Empty;
             }
         }
 
