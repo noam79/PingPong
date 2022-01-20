@@ -29,17 +29,16 @@ namespace PingPongServer.SocketClientHandlers
 
                 while (_run)
                 {
-                    buffer = new byte[1024];
+                    buffer = new byte[2048];
                     int bytesReceived = socket.Receive(buffer);
+
                     data += Encoding.ASCII.GetString(buffer, 0, bytesReceived);
-                    if (data.IndexOf("<EOF>") > -1)
-                    {
-                        _logger?.Info($"Received Message: \"{data}\"");
-                        break;
-                    }
+
+                    _logger?.Info($"Received Message, Echoing: \"{data}\"");
+                    socket.Send(Encoding.ASCII.GetBytes(data));
+
+                    data = string.Empty;
                 }
-                _logger?.Info($"Sending Message: \"{data}\"");
-                socket.Send(Encoding.ASCII.GetBytes(data));
             }
         }
 
